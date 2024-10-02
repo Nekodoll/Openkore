@@ -1,0 +1,24 @@
+[Ragnarok]
+ip 203.159.92.73
+port 30211
+master_version 7
+version 55
+serverType kRO_RagexeRE_2021_11_03
+charBlockSize 175
+serverEncoding Thai
+addTableFolders tRO
+field_morocc morocc-old
+field_falserealm moc_fild07
+field_izlude izlude_d
+
+[THUAY-RO5.0]
+ip 45.144.166.210
+port 31911
+master_version 7
+version 55
+serverType kRO_RagexeRE_2021_11_03
+charBlockSize 175
+serverEncoding Thai
+addTableFolders kRO/Ragexe_2021_11_03;iRO
+field_morocc morocc-old
+field_payon old_payon
