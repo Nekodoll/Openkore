@@ -5,7 +5,7 @@
 
 master HM-Ragnarok
 server 0
-username hmcats1
+username 
 password wasd1111
 loginPinCode
 char 0
@@ -37,7 +37,7 @@ XKore_ID
 
 # It is not advised to set secureAdminPassword if you're using Xkore 2
 secureAdminPassword 1
-adminPassword crujucou
+adminPassword prupapai
 callSign
 commandPrefix ;
 callSignGM 0
