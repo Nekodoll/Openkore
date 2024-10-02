@@ -1,1 +1,0 @@
-!include ..\kn_macro.txt
