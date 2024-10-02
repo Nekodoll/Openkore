@@ -109,7 +109,7 @@ automacro DealPay_fild07 {
 	call {
 		do ai manual
 		do respawn
-		do move morocc &rand(154,155) &rand(102, 104)
+		do move aldebaran 137 119
 		pause 2
 	@tmpINV = (usable,card,etc,etc,equip,usable)
 	$j = 0

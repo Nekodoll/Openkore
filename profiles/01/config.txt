@@ -3,7 +3,7 @@
 !include ../help.txt
 ######## Login options and server-specific options ########
 
-master 
+master HM-Ragnarok
 server 0
 username hmcats1
 password wasd1111
@@ -37,7 +37,7 @@ XKore_ID
 
 # It is not advised to set secureAdminPassword if you're using Xkore 2
 secureAdminPassword 1
-adminPassword tweawrit
+adminPassword crujucou
 callSign
 commandPrefix ;
 callSignGM 0
@@ -201,7 +201,7 @@ cartMaxWeight 7900
 itemsTakeGreed 0
 itemsCheckWeight 1
 
-lockMap mjolnir_10
+lockMap
 lockMap_x
 lockMap_y
 lockMap_randX
