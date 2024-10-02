@@ -159,7 +159,7 @@ cachePlayerNames 1
 cachePlayerNames_duration 900
 cachePlayerNames_maxSize 100
 
-clientSight 17
+clientSight 50
 
 dcPause 1
 dcOnDeath 0
@@ -259,12 +259,12 @@ sitAuto_look_from_wall
 sitTensionRelax 0
 
 statsAddAuto 1
-statsAddAuto_list 10 str, 10 dex, 20 vit, 20 str, 40 vit, 50 int, 30 dex, 92 str, 80 vit
+statsAddAuto_list 10 str, 10 dex, 20 vit, 20 str, 40 vit, 30 dex, 92 str, 80 vit
 statsAddAuto_dontUseBonus 1
 statsAdd_over_99 1
 
 skillsAddAuto 1
-skillsAddAuto_list 1 9, 2 10, 4 10,5 10,3 1,6 8,8 10,63 1,64 5,55 10,56 3,59 5,56 10,58 3,57 10
+skillsAddAuto_list 1 9, 2 1, 4 10,5 10,3 10,6 8,8 10,63 1,64 5,55 10,56 3,59 5,56 10,58 3,57 10
 
 tankMode 0
 tankModeTarget
