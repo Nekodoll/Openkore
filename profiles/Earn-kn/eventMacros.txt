@@ -1,0 +1,245 @@
+automacro aicheck {
+        StatusActiveHandle Ai
+        CurrentHP < 50%
+        exclusive 1
+        call {
+        do is &inventory (Ai 30 Day)
+        do talk resp 2
+        do respawn
+        do talknpc 123 169
+        pause 0.1
+        do talknpc 123 169
+        pause 0.1
+        do talknpc 117 169 r0
+        do is &inventory (Ai 30 Day)
+        do talk resp 0
+
+}
+}
+
+
+
+automacro autobuff {
+        CurrentHP < 50%
+        timeout 5
+        InCity 0
+        call {
+        do respawn
+        do talknpc 123 169
+        pause 0.1
+        do talknpc 123 169
+        pause 0.1
+        do talknpc 117 169 r0
+}
+}
+
+
+automacro autobuffs {
+        CurrentSP < 10
+        timeout 5
+        InCity 0
+        call {
+        do respawn
+        do talknpc 123 169
+        pause 0.1
+        do talknpc 123 169
+        pause 0.1
+        do talknpc 117 169 r0
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+automacro starter {
+        InMap new_1-1
+        run-once 1
+        exclusive 1
+        call {
+        do conf statsAddAuto 1
+        do conf statsAddAuto_dontUseBonus 1
+        do conf statsAddAuto_list 10 str, 10 dex, 20 vit, 30 dex, 30 vit, 90 str
+        do conf skillsAddAuto 1
+        do conf skillsAddAuto_list 1 9
+        do move new_1-1 148 112
+        do move new_1-2 100 26
+        do talknpc 100 29 r0 r0
+        do mconf all 0 0 0
+        do mconf lunatic 2 0 1
+        do mconf Picky 2 0 1
+        do mconf Poring 2 0 1 
+        do mconf Fabre 2 0 1
+        do mconf drop 2 0 1
+        do move new_1-3 91 37
+        do conf lockMap $.map
+        do talknpc 91 43 n
+        do eq Novice Main-Gauche
+        do eq Novice Guard
+        do eq Tattered Novice Ninja Suit
+        do eq Novice Slippers
+        do eq Somber Novice Hood
+        do eq Novice False Eggshell
+        do conf itemsTakeAuto 0
+        do conf itemsGatherAuto 0
+}
+}
+
+automacro chageJob {
+        JobLevel = 10
+        JobID 0
+        exclusive 1
+        call {
+        do mconf all 2 0 1
+        do ai manual
+        do move new_1-3 97 170 
+        do talknpc 96 175 r0
+        pause 2
+        do talknpc 140 169 r0 r0
+        do talknpc 117 169 r3 r20 r7
+        do conf lockMap $.map
+        do conf skillsAddAuto_list 1 9
+
+
+}
+}
+
+
+automacro monkc {
+        JobLevel > 50
+        exclusive 1
+        call {
+        do ai manual
+        do respawn
+        do talknpc 140 169 r1 r0
+        do eq Fist
+        do conf skillsAddAuto_list 259 5,261 5,265 5,263 5,272 5,273 5
+        do ai on
+
+
+}
+
+
+
+}
+automacro topecopeco {
+        BaseLevel >= 30
+        ConfigKey lockMap pay_fild08
+        exclusive 1
+        call {
+        do respawn
+        do talknpc 117 169 r3 r23 r1
+        do conf lockMap $.map
+}
+}
+automacro toWolf{
+        BaseLevel >= 50
+        ConfigKey lockMap moc_fild02
+        exclusive 1
+        call {
+        do respawn
+        do talknpc 117 169 r3 r23 r6
+        do conf lockMap $.map
+}
+}
+
+
+macro dd {
+
+        do iconf Novice Potion 0 0 0
+        do conf saveMap morocc
+        do conf saveMap_warpChatCommand @load
+        do conf sellAuto 1
+        do conf sellAuto_npc morocc 147 102
+        do conf storageAuto 1
+        do conf storageAuto_npc morocc 156 97
+        do conf lockMap moc_fild11
+        do conf skillsAddAuto_list 1 9, 2 10, 4 10
+        do mconf all 1 0 1
+        do mconf Condor 1 0 1
+        do mconf lunatic 1 0 1
+        do mconf Picky 1 0 1
+        do mconf Poring 1 0 1 
+        do mconf Fabre 1 0 1
+        do mconf drop 1 0 1
+}
+
+automacro warplastpoint {
+        SimpleHookEvent AI/lockMap
+        InMap morocc
+        overrideAI 1
+        exclusive 1
+        timeout 5
+        call {
+                do talknpc 123 169
+                do talknpc 123 169
+                do talknpc 117 169 r0 n
+
+
+
+}
+}
+
+automacro DealtoMC {
+    CharCurrentWeight > 60%
+    #InMap morocc  #ใส่ map เพิ่มเอาเอง
+    overrideAI 1
+    exclusive 1
+    timeout 400
+    call {
+        $mcname = Shop
+        do ai manual
+        do respawn
+        #do move morocc 122 165 #เปลี่ยน x,y ข้างๆแม่ค้าเอา
+        pause 2
+    @tmpINV = (usable,card,etc,etc,equip,equip) # เพิ่มเอาได้ usable,etc,card,equip
+    $j = 0
+    while ($j < 6) {
+    @tmpI = &InventoryType ($tmpINV[$j])
+    if ($tmpI[0] > -1) {
+        do deal $mcname
+        pause 2
+        $i = 0
+        while ($i < @tmpI && $i<10) {
+            do deal add $tmpI[$i]
+            $i++
+            }
+        do deal
+        pause 2
+        do deal
+
+    }
+    $j++
+    }    
+    do ai on
+}
+}

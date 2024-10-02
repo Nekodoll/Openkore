@@ -1,0 +1,26 @@
+useSelf_item Potato, apple, carrot, Novice Potion,Freshly Squeezed Milk, red Herb,Freshly Potato, [Event] Novice Potion, Milk,[Event] Red Potion {
+	hp < 70%
+}
+
+##################################
+attackSkillSlot Bash {
+	lvl 5
+	maxDist
+	maxAttempts 
+	maxUses 1
+}
+
+useSelf_item Awakening Potion {
+	whenStatusActive
+	whenStatusInactive Awakening Potion
+	stopWhenHit 0
+	inLockOnly 0
+	notWhileSitting 1
+	notInTown 1
+	timeout 20
+	disabled 0
+	whenPartyMembersNear
+	whenPartyMembersNearDist
+	inInventory
+	manualAI 0
+}
