@@ -1,0 +1,262 @@
+automacro starter {
+	InMap new_1-1
+	run-once 1
+	exclusive 1
+	call {
+	do conf statsAddAuto 1
+	do conf statsAddAuto_dontUseBonus 1
+	do conf statsAddAuto_list 10 str, 10 dex, 20 vit, 20 str, 40 vit, 50 int, 30 dex, 80 str
+	do conf skillsAddAuto 1
+	do conf skillsAddAuto_list 1 9
+	do move new_1-1 148 112
+	do move new_1-2 100 26
+	do talknpc 100 29 r0 r0
+	do mconf all 0 0 0
+	do mconf lunatic 2 0 1
+	do mconf Picky 2 0 1
+	do mconf Poring 2 0 1 
+	do mconf Fabre 2 0 1
+	do mconf drop 2 0 1
+	do move new_1-3 94 42
+	do conf lockMap $.map
+	do talknpc 91 43 n
+	do eq Novice Main-Gauche
+	do eq Novice Guard
+	do eq Tattered Novice Ninja Suit
+	do eq Novice Slippers
+	do eq Somber Novice Hood
+	do eq Novice False Eggshell
+	do conf itemsTakeAuto 0
+	do conf itemsGatherAuto 0
+}
+}
+
+automacro chageJob {
+	InMap new_1-3
+	JobLevel = 10
+	JobID 0
+	exclusive 1
+	call {
+	do ai manual
+	do move new_1-3 94 42
+	do talknpc 91 43 n
+	do talknpc 91 37 r0
+	do move morocc 151 103
+	do talknpc 147 110 r0
+	do eq Knife [3]
+	do eq Cotton Shirts
+	do iconf Novice Potion 0 0 0
+	do conf saveMap morocc
+	do conf saveMap_warpChatCommand @load
+	do conf sellAuto 1
+	do conf sellAuto_npc morocc 147 102
+	do conf storageAuto 1
+	do conf storageAuto_npc morocc 156 97
+	do conf lockMap moc_fild11
+	do conf skillsAddAuto_list 1 9, 2 10, 4 10,5 10,3 1,6 8,8 10,63 1,64 5,55 10,56 3,59 5,56 10,58 3,57 10
+	do mconf all 1 0 1
+	do mconf Condor 1 0 1
+	do mconf lunatic 1 0 1
+	do mconf Picky 1 0 1
+	do mconf Poring 1 0 1 
+	do mconf Fabre 1 0 1
+	do mconf drop 1 0 1
+	
+
+}
+}
+
+automacro AutoBuff {
+	StatusInactiveHandle EFST_BLESSING
+	exclusive 1
+	timeout 20
+	call {
+	do respawn
+	switch ($.map) {
+	case (== morocc) {
+	do move morocc &rand(150,160) &rand(100, 105)
+	do talknpc 158 107 n
+	}
+	case (== payon) {
+	do move payon &rand(95,105) &rand(110, 120)
+	do talknpc 100 116 n
+	}
+	}
+
+}	
+}	
+automacro lvl40+ {
+	BaseLevel >= 30
+	exclusive 1
+	InMap moc_pryd01
+	timeout 20
+	call {
+	do ai manual
+	do respawn
+	do move morocc &rand(153,160) &rand(90, 105)
+	do talknpc 156 97 r2 r1 n
+	do conf sellAuto_npc payon 81 126
+	do conf storageAuto_npc payon 97 116
+	do move payon 100 120
+	do talknpc 97 116 r0 n
+	do move payon 175 189
+	do conf lockMap pay_dun00
+	do ai on
+}
+}
+
+macro p {
+	do move payon 100 120
+	do talknpc 97 116 r0 n
+	do move payon 175 189
+	do conf lockMap pay_dun00
+	do ai on
+}
+
+automacro changeKnight {
+	JobLevel = 50
+	exclusive 1
+	JobID 1
+	timeout 300
+	call {
+	do ai manual
+	do respawn
+	do move payon 98 112
+	do talknpc 97 116 r2 r2 n
+	do move morocc 157 97
+	do talknpc 147 110 n
+	do move morocc 164 86
+	do talknpc 171 88
+
+	do respawn
+}	
+}
+
+automacro payonunstack {
+	IsInCoordinate 150..152 125..127
+	InMap payon
+	exclusive 1
+	timeout 20
+	call {
+	do west
+}
+}
+
+macro test {
+	$c = &InventoryType (card)
+	if $c > 0 {
+	
+	}
+}
+
+macro t2 {
+	@a = &InventoryType (etc)
+	log @a
+	if (@a > 0) {
+	do deal Mirei:
+	$i = 0
+    		while ($i < @a) {
+    		do deal add $a[$i]
+    		$i++
+    		}
+	do deal
+	do deal
+	}	
+}
+
+automacro DealPay_fild07 {
+	CharCurrentWeight > 45%
+	InMap pay_fild07
+	JobID 7
+	exclusive 1
+	timeout 400
+	call {
+		do move 23 208
+	@tmpINV = (card,etc,etc,equip,usable)
+	$j = 0
+	while ($j < @tmpINV) {
+
+	
+	@tmpI = &InventoryType ($tmpINV[$j])
+	if ($tmpI[0] > 0) {
+	do deal Mirei:
+	pause 2
+	$i = 0
+    		while ($i < @tmpI) {
+    		do deal add $tmpI[$i]
+    		$i++
+    		}
+	do deal
+	pause 2
+	do deal
+	pause 2
+	}
+	$j++
+	}	
+}
+
+}
+macro t4 {
+	@tmpINV = (card,etc)
+	$j = 0
+	while ($j < @tmpINV) {
+	log $tmpINV[$j]
+	@a = &InventoryType ($tmpINV[$j])
+	log @a
+	log $a
+	$j++
+}
+}
+################################
+macro dealEtc {
+	@item = &InventoryType (etc)
+	if (@item > 0) {
+	do deal Mirei:
+	$i = 0
+    		while ($i < 10) {
+    		do deal add $a[$i]
+    		$i++
+    		}
+	do deal
+	do deal
+	}	
+}
+macro dealUse {
+	@item = &InventoryType (usable)
+	if (@item > 0) {
+	do deal Mirei:
+	$i = 0
+    		while ($i < 10) {
+    		do deal add $a[$i]
+    		$i++
+    		}
+	do deal
+	do deal
+	}	
+}
+macro dealequip {
+	@item = &InventoryType (equip)
+	if (@item > 0) {
+	do deal Mirei:
+	$i = 0
+    		while ($i < 10) {
+    		do deal add $a[$i]
+    		$i++
+    		}
+	do deal
+	do deal
+	}	
+}
+macro dealcard {
+	@item = &InventoryType (card)
+	if (@item > 0) {
+	do deal Mirei:
+	$i = 0
+    		while ($i < 10) {
+    		do deal add $a[$i]
+    		$i++
+    		}
+	do deal
+	do deal
+	}	
+}

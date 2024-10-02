@@ -1,0 +1,87 @@
+useSelf_item Potato, apple, carrot, Novice Potion,Freshly Squeezed Milk, red Herb,Freshly Potato, [Event] Novice Potion, Milk,[Event] Red Potion {
+	hp < 70%
+}
+
+##################################
+attackSkillSlot {
+	lvl 5
+	maxDist
+	maxAttempts 
+	maxUses 1
+}
+attackSkillSlot 59 {
+	lvl 5
+	maxDist 18
+	maxAttempts 
+	aggressives < 3
+	monsters
+	notMonsters Argiope,Argos,Poring
+	maxUses 
+}
+attackSkillSlot 56 {
+	lvl 5
+	maxDist 
+	aggressives < 3
+	maxAttempts 
+	monsters Argiope,Argos
+	notMonsters
+	maxUses 
+}
+attackSkillSlot 57 {
+	lvl 10
+	dist 1..3
+	sp > 10%
+	aggressives >= 3
+	inLockOnly 
+	timeout 
+	monsters
+	maxAttempts 
+	maxUses 
+}
+useSelf_item Awakening Potion,Berserk Potion {
+	whenStatusActive
+	whenStatusInactive Awakening Potion,EFST_ATTHASTE_POTION3
+	stopWhenHit 0
+	inLockOnly 1
+	notWhileSitting 1
+	notInTown 1
+	timeout 20
+	disabled 0
+	whenPartyMembersNear
+	whenPartyMembersNearDist
+	inInventory
+	manualAI 0
+}
+
+
+
+
+
+
+
+
+##########################
+
+sellAuto 0
+sellAuto_npc 
+sellAuto_standpoint
+sellAuto_distance 3
+sellAuto_maxDistance
+sellAuto_npc_steps s
+
+storageAuto 0
+storageAuto_npc 
+storageAuto_standpoint
+storageAuto_distance 7
+storageAuto_maxDistance
+storageAuto_npc_type 1
+storageAuto_type 0
+storageAuto_npc_steps c r1
+storageAuto_password
+storageAuto_keepOpen 0
+storageAuto_useChatCommand
+storageAuto_useItem 0
+storageAuto_useItem_item
+storageAuto_notAfterDeath
+relogAfterStorage 0
+minStorageZeny 50

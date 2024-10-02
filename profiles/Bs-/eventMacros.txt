@@ -1,0 +1,249 @@
+automacro starter {
+	InMap new_1-1
+	run-once 1
+	exclusive 1
+	call {
+	do conf statsAddAuto 1
+	do conf statsAddAuto_dontUseBonus 1
+	do conf statsAddAuto_list 10 str, 10 dex, 20 vit, 20 str, 40 vit, 50 int, 30 dex, 80 str
+	do conf skillsAddAuto 1
+	do conf skillsAddAuto_list 1 9
+	do move new_1-1 148 112
+	do move new_1-2 100 26
+	do talknpc 100 29 r0 r0
+	do mconf all 0 0 0
+	do mconf lunatic 2 0 1
+	do mconf Picky 2 0 1
+	do mconf Poring 2 0 1 
+	do mconf Fabre 2 0 1
+	do mconf drop 2 0 1
+	do move new_1-3 94 42
+	do conf lockMap $.map
+	do talknpc 91 43 n
+	do eq Novice Main-Gauche
+	do eq Novice Guard
+	do eq Tattered Novice Ninja Suit
+	do eq Novice Slippers
+	do eq Somber Novice Hood
+	do eq Novice False Eggshell
+	do conf itemsTakeAuto 0
+	do conf itemsGatherAuto 0
+}
+}
+
+automacro chageJob {
+	InMap new_1-3
+	JobLevel = 10
+	JobID 0
+	exclusive 1
+	call {
+	do ai manual
+	do move new_1-3 94 42
+	do talknpc 91 43 n
+	do talknpc 91 37 r0
+	do move morocc 151 103
+	do talknpc 147 110 r0
+	do eq Knife [3]
+	do eq Cotton Shirts
+	do iconf Novice Potion 0 0 0
+	do conf saveMap morocc
+	do conf saveMap_warpChatCommand @load
+	do conf sellAuto 1
+	do conf sellAuto_npc morocc 147 102
+	do conf storageAuto 1
+	do conf storageAuto_npc morocc 156 97
+	do conf lockMap moc_fild11
+	do conf skillsAddAuto_list 1 9, 2 10, 4 10,5 10,3 1,6 8,8 10,63 1,64 5,55 10,56 3,59 5,56 10,58 3,57 10
+	do mconf all 1 0 1
+	do mconf Condor 1 0 1
+	do mconf lunatic 1 0 1
+	do mconf Picky 1 0 1
+	do mconf Poring 1 0 1 
+	do mconf Fabre 1 0 1
+	do mconf drop 1 0 1
+	
+
+}
+}
+
+automacro AutoBuff {
+	StatusInactiveHandle EFST_BLESSING
+	exclusive 1
+	timeout 20
+	call {
+	#do respawn
+	switch ($.map) {
+	case (== morocc) {
+	do move morocc &rand(150,160) &rand(100, 105)
+	do talknpc 158 107 n
+	}
+	case (== payon) {
+	do move payon &rand(95,105) &rand(110, 120)
+	do talknpc 100 116 n
+	}
+	}
+
+}	
+}	
+automacro lvl40+ {
+	BaseLevel >= 30
+	exclusive 1
+	InMap moc_pryd01
+	timeout 20
+	call {
+	do ai manual
+	do respawn
+	do move morocc &rand(153,160) &rand(90, 105)
+	do talknpc 156 97 r2 r1 n
+	do conf sellAuto_npc payon 81 126
+	do conf storageAuto_npc payon 97 116
+	do move payon 100 120
+	do talknpc 97 116 r0 n
+	do move payon 175 189
+	do conf lockMap pay_dun00
+	do ai on
+}
+}
+
+macro p {
+	do move payon 100 120
+	do talknpc 97 116 r0 n
+	do move payon 175 189
+	do conf lockMap pay_dun00
+	do ai on
+}
+
+automacro changeKnight {
+	JobLevel = 50
+	exclusive 1
+	JobID 1
+	timeout 300
+	call {
+	do ai manual
+	do respawn
+	do move payon 98 112
+	do talknpc 97 116 r2 r2 n
+	do move morocc 157 97
+	do talknpc 147 110 n
+	do move morocc 164 86
+	do talknpc 171 88
+
+	do respawn
+}	
+}
+
+automacro payonunstack {
+	IsInCoordinate 150..152 125..127
+	InMap payon
+	exclusive 1
+	timeout 20
+	call {
+	do west
+}
+}
+
+macro test {
+	$c = &InventoryType (card)
+	if $c > 0 {
+	
+	}
+}
+
+macro t2 {
+	@a = &InventoryType (etc)
+	log @a
+	if (@a > 0) {
+	$i = 0
+    		while ($i < @a) {
+    		log &inventory (@a[$i]) &invamount (@a[$i])
+    		$i++
+    		}
+	}	
+}
+
+macro t3 {
+	@a = &InventoryType (usable)
+	log @a
+}
+
+macro log {
+	do conf logChat 0
+	do conf logPrivateChat 0
+	do conf logPartyChat 0
+	do conf logGuildChat 0
+	do conf logSystemChat 0
+	do conf logLocalBroadcast 0
+	do conf logShop 0
+	do conf logEmoticons 0
+	do conf logConsole 0
+	do conf logAppendUsername 0
+	do conf logAppendServer 0
+	do conf monsterLog 0
+	do conf playerLog 0
+	do conf logDead 0
+}
+
+macro bl {
+	$i = 0
+	while ($i < 10) {
+	do move geffen_in 70 161
+	do talknpc 77 173 b b0,1000 n
+	do move geffen 121 62
+	do talknpc 116 73 r1
+	do storage add &inventory (Blue Gemstone)
+	pause 1
+	do storage close 
+	$i++ 
+	}
+}
+
+automacro getBlueToaco {
+	PlayerNearDist /Slave/ < 5
+	PubMsg /บลู/i
+	exclusive 1
+	timeout 20
+	call {
+	do talknpc 156 97 r1 n
+	do storage get &storage (Blue Gemstone) 100
+	do storage close
+	pause 5
+	do move 164 110
+	do deal Slave
+	pause 2
+	do deal add &inventory (Blue Gemstone) 
+	pause 0.5
+	do deal
+	pause 0.5
+	do deal
+	
+}
+}
+
+
+automacro givebwing {
+	PrivMsgName /Bwing/ /Slow/i
+	exclusive 1
+	call {
+	do deal $.PrivMsgNameLastName
+	pause 2
+	do deal add &inventory (Butterfly wing) 5
+	do deal add &inventory (Berserk Potion) 10
+	pause 0.5
+	do deal
+	pause 0.5
+	do deal
+	pause 5
+	do pm $.PrivMsgNameLastName Hunt
+	do pm $.PrivMsgNameLastName eeee
+	
+}
+}
+
+
+automacro autostoresetup {
+	PlayerNotNear /Slow/i
+	CharCurrentWeight > 10%
+	call {
+	do autostorage
+}
+}
