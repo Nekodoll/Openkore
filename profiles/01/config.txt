@@ -3,7 +3,7 @@
 !include ../help.txt
 ######## Login options and server-specific options ########
 
-master Ragnarok
+master 
 server 0
 username hmcats1
 password wasd1111
