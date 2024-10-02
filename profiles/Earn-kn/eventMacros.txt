@@ -159,6 +159,10 @@ automacro topecopeco {
         do respawn
         do talknpc 117 169 r3 r23 r1
         do conf lockMap $.map
+	do mconf 1047 0 0 0
+	do mconf 1049 0 0 0
+	do mconf 1113 0 0 0
+	
 }
 }
 automacro toWolf{

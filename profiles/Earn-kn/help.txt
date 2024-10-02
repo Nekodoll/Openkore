@@ -3,13 +3,16 @@ useSelf_item Potato, apple, carrot, Novice Potion,Freshly Squeezed Milk, red Her
 }
 
 ##################################
-attackSkillSlot Bash {
+attackSkillSlot 5 {
 	lvl 5
-	maxDist
+	dist 1.5
+	sp > 10
+	inLockOnly 1
+	timeout 5
+	monsters
 	maxAttempts 
-	maxUses 1
+	maxUses 4
 }
-
 useSelf_item Awakening Potion {
 	whenStatusActive
 	whenStatusInactive Awakening Potion
