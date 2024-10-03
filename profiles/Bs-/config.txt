@@ -886,7 +886,7 @@ useSelf_item {
 
 ######## Autostorage/autosell ########
 
-buyAuto Butterfly Wing {
+buyAuto  {
 	npc morocc 147 102
 	npc_steps b
 	isMarket 0
@@ -901,7 +901,7 @@ buyAuto Butterfly Wing {
 	maxBase
 	minBase
 }
-buyAuto Berserk Potion {
+buyAuto  {
 	npc morocc 147 102
 	npc_steps b
 	isMarket 0
@@ -917,14 +917,14 @@ buyAuto Berserk Potion {
 	minBase
 }
 sellAuto 1
-sellAuto_npc morocc 147 102
+sellAuto_npc morocc 126 169
 sellAuto_standpoint
 sellAuto_distance 10
 sellAuto_maxDistance
 sellAuto_npc_steps s
 
 storageAuto 1
-storageAuto_npc morocc 156 97
+storageAuto_npc morocc 120 169
 storageAuto_standpoint
 storageAuto_distance 10
 storageAuto_maxDistance
@@ -943,14 +943,14 @@ minStorageZeny 50
 npcTimeResponse
 npcWrongStepsMethod 1
 
-getAuto Berserk Potion {
+getAuto  {
 	minAmount 0
 	maxAmount 20
 	batchSize
 	passive
 	disabled 0
 }
-getAuto Butterfly Wing {
+getAuto  {
 	minAmount 0
 	maxAmount 10
 	batchSize
