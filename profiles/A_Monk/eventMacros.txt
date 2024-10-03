@@ -58,7 +58,7 @@ automacro starter {
 	do conf teleportAuto_search 0
 	do conf dcOnStorageFull 0
 	do conf sellAuto 0
-	do storageAuto 0
+	do conf storageAuto 0
 	do conf statsAddAuto 0
 	do conf lockMap unset
 	do conf statsAddAuto 1
