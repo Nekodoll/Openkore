@@ -3,27 +3,3 @@ useSelf_item Potato, apple, carrot, Novice Potion,Freshly Squeezed Milk, red Her
 }
 
 ##################################
-attackSkillSlot 5 {
-	lvl 5
-	dist 1.5
-	sp > 10
-	inLockOnly 1
-	timeout 5
-	monsters
-	maxAttempts 
-	maxUses 4
-}
-useSelf_item Awakening Potion {
-	whenStatusActive
-	whenStatusInactive Awakening Potion
-	stopWhenHit 0
-	inLockOnly 0
-	notWhileSitting 1
-	notInTown 1
-	timeout 20
-	disabled 0
-	whenPartyMembersNear
-	whenPartyMembersNearDist
-	inInventory
-	manualAI 0
-}
