@@ -1,6 +1,6 @@
 # Please Read the Users Manual
 # The Manual is located at https://openkore.com/wiki/Manual
-!include help.txt
+!include ../help.txt
 ######## Login options and server-specific options ########
 
 master HM-Ragnarok
