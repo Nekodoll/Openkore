@@ -1,6 +1,6 @@
 # Please Read the Users Manual
 # The Manual is located at https://openkore.com/wiki/Manual
-
+!include help.txt
 ######## Login options and server-specific options ########
 
 master HM-Ragnarok
@@ -8,7 +8,7 @@ server 0
 username 
 password wasd1111
 loginPinCode
-char 
+char 0
 
 # Poseidon Settings: https://openkore.com/wiki/Poseidon
 # They must be the same as Query Server config in Poseidon.txt

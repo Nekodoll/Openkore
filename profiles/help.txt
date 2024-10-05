@@ -61,27 +61,26 @@ useSelf_item Awakening Potion,Berserk Potion {
 
 
 ##########################
+useSelf_skill 28 {
+	lvl 10
+	hp < 70%
+	notInTown 1
+	stopWhenHit 1
 
-sellAuto 0
-sellAuto_npc 
-sellAuto_standpoint
-sellAuto_distance 3
-sellAuto_maxDistance
-sellAuto_npc_steps s
-
-storageAuto 0
-storageAuto_npc 
-storageAuto_standpoint
-storageAuto_distance 7
-storageAuto_maxDistance
-storageAuto_npc_type 1
-storageAuto_type 0
-storageAuto_npc_steps c r1
-storageAuto_password
-storageAuto_keepOpen 0
-storageAuto_useChatCommand
-storageAuto_useItem 0
-storageAuto_useItem_item
-storageAuto_notAfterDeath
-relogAfterStorage 0
-minStorageZeny 50
+}
+attackComboSlot Raging Quadruple Blow {
+      afterSkill Raging Trifecta Blow
+      isSelfSkill 1
+      waitBeforeUse 0
+      monsters
+      maxUses 
+      autoCombo 1
+}
+attackComboSlot Raging Thrust {
+      afterSkill Raging Quadruple Blow
+      isSelfSkill 1
+      waitBeforeUse 0
+      monsters
+      maxUses 
+      autoCombo 1
+}
