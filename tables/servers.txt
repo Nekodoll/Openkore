@@ -23,3 +23,14 @@ addTableFolders kRO/Ragexe_2021_11_03;iRO
 field_morocc morocc-old
 field_payon old_payon
 private 1
+
+[2nd-RO]
+ip 103.245.164.130
+port 30791
+master_version 7
+version 128
+serverType kRO_RagexeRE_2021_11_03
+charBlockSize 175
+serverEncoding Thai
+addTableFolders kRO/Ragexe_2021_11_03;iRO
+private 1

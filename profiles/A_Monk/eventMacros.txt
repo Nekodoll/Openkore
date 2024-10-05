@@ -101,7 +101,7 @@ automacro chageJob {
 	do talknpc 91 43 n
 	do talknpc 91 37 r0
 	do move morocc 161 106
-	do talknpc 169 107 r1
+	do talknpc 169 107 r3
 	do eq Knife [3]
 	do eq Cotton Shirts
 	do iconf Novice Potion 0 0 0
