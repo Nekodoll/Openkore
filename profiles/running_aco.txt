@@ -35,7 +35,10 @@ automacro getmailstunner {
 	timeout 20
 	call {
 	do rodex open
-	do rodex getitems
+	do rodex read 0
+	do rodex getitems 0
+	do rodex delete 0
+	do rodex close
 	do eq &inventory (Stunner)
 	do conf lockMap moc_fild02
 	do respawn
