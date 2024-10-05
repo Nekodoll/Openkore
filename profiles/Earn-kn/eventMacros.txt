@@ -176,7 +176,17 @@ automacro toWolf{
 }
 }
 
-
+automacro chKn {
+	JobID 1
+	JobLevel = 50
+	call {
+	do ai manual 
+	do respawn
+	do talknpc 140 169 r0 r0
+	
+	do ai on
+}
+}
 macro dd {
 
         do iconf Novice Potion 0 0 0
