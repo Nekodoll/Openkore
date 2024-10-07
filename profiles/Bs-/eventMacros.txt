@@ -30,6 +30,11 @@ automacro mail_stunner {
 }
 }
 
-macro pm {
-	do pm Monk1 tert
+
+automacro autostoresetup {
+	PlayerNotNear /Slow/i ,/Monk/i
+	CharCurrentWeight > 10%
+	call {
+	do autostorage
+}
 }

@@ -44,12 +44,12 @@ all 0 1 0
 ##### HEAL/SUPPORT ITEMS #####
 # Adjust these to your needs
 
-602 10 1 0 # Butterfly Wing
-601 100 1 0 # Fly Wing
+602 0 0 1 # Butterfly Wing
+601 0 0 1 # Fly Wing
 
 505 0 1 0 # Blue Potion
 545 50 1 0 # Condensed Red Potion
-547 50 1 0 # Condensed White Potion
+547 0 1 0 # Condensed White Potion
 546 50 1 0 # Condensed Yellow Potion
 506 0 1 0 # Green Potion
 501 25 1 0 # Red Potion
@@ -1768,3 +1768,19 @@ Spearman Scroll 10 0 0 0
 22543 100 1 0 # Berserk Potion
 619 0 0 1 #Unripe Apple
 508 0 0 1 #Yellow Herb
+2285 0 0 1 #Apple of Archer
+1752 0 0 1 # Fire Arrow
+1061 0 0 1 #Witch Starsand
+715 0 0 1 #Yellow Gemstone
+610 0 0 1 #Yggdrasil Leaf
+520 0 0 1 #Hinalle Leaflet
+637 0 0 1 #Old Broom
+10004 0 0 1 #Pacifier
+518 0 0 1 #Honey
+2207 0 0 1 #Fancy Flower
+692 0 0 1 #Level 3 Lightening Bolt
+2322 0 0 1 #Silk Robe [1]
+1002 0 0 1 #Iron Ore
+716 0 0 1 #Red Gemstone
+729 0 1 0 #Zircon
+2213 0 0 1 #Kitty Band

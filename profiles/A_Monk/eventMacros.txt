@@ -1,1 +1,108 @@
-!include ../running_aco.txt
+automacro AutoBuff {
+	StatusInactiveHandle EFST_BLESSING
+	JobIDNot 0
+	exclusive 1
+	timeout 20
+	call {
+	#do respawn
+	switch ($.map) {
+	case (== morocc) {
+	do move morocc &rand(150,160) &rand(100, 105)
+	do talknpc 158 107 n
+	}
+	case (== payon) {
+	do move payon &rand(95,105) &rand(110, 120)
+	do talknpc 100 116 n
+	}
+	}
+
+}	
+}	
+
+
+automacro getstunner {
+	InInventory "Stunner" < 1
+	timeout 6000
+	BaseLevel >= 27
+	JobID 4
+	call {
+		do pm Mirei: stunnergo
+	}
+}
+automacro getmailstunner {
+	PrivMsg /gmail/
+	exclusive 1
+	timeout 20
+	call {
+	do rodex open
+	do rodex read 0
+	do rodex getitems 0
+	do rodex delete 0
+	do rodex close
+	do eq &inventory (Stunner)
+	do conf lockMap moc_fild02
+	do respawn
+
+}
+}
+
+automacro movetowarp {
+	PrivMsgName /108/i /Slave/ 
+	call {
+	do p $.PrivMsgNameLastMsg
+	do p hahah
+	do move morocc $.PrivMsgNameLastMsg
+}
+}
+
+automacro goinwarp {
+	InMap morocc
+	exclusive 1
+	overrideAI 1
+	PartyMsgDist /108/i < 50
+	call {
+	do move morocc $.PrivMsgNameLastMsg
+}
+}
+
+automacro lockMap_set {
+	MapLoaded moc_fild02
+	ConfigKeyNot lockMap moc_fild02
+	timeout 5
+	call {
+	do conf lockMap $.map
+}
+}
+
+automacro warplastpoint {
+       	SimpleHookEvent AI/lockMap
+       	InMap morocc
+	InLockMap 1
+       	overrideAI 1
+	exclusive 1
+	timeout 5
+	call {
+		switch (&config (lockMap)) {
+		case (== gef_fild05) {
+		do move morocc 132 105
+		}
+		case (== moc_fild02) {
+		do move morocc 132 107
+		}
+		}
+
+}
+}
+
+automacro lv40 {
+	BaseLevel >= 40
+	overrideAI 1
+	exclusive 1
+	call {
+		do conf lockMap moc_fild02
+		do respwan
+
+	}
+}
+
+
