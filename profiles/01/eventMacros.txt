@@ -1,6 +1,4 @@
-!include ../basicev.txt
-
-macro close_log {
+macro tab {
     do conf logChat 0
     do conf logPrivateChat 0
     do conf logPartyChat 0
@@ -15,5 +13,137 @@ macro close_log {
     do conf monsterLog 0
     do conf playerLog 0
     do conf logDead 0
-    do conf dcOnStorageFull 0
+    do conf sitAuto_hp_lower 0
+    do conf sitAuto_hp_upper 0
+    do conf sitAuto_sp_lower 0
+    do conf sitAuto_sp_upper 0
+    do move morocc 150 107
+    do talknpc 158 107
+    do talknpc 157 97 r2 r0
+    do move prontera 147 81
+    do talknpc 146 89 r2 r1
+    do move geffen 120 60
+    do talknpc 116 73 r2 r1
+    do move aldebaran 140 124
+    do talknpc 145 121 r0
+    do conf lockMap c_tower1
+}
+
+
+
+
+
+
+automacro DealAuto {
+    CharCurrentWeight > 50%
+    JobID 7
+    exclusive 1
+    timeout 400
+    call {
+        #do ai manual
+        do respawn
+        do move morocc 133 44
+        pause 2
+    @tmpINV = (usable,card,etc,etc,equip,usable)
+    $j = 0
+    while ($j < 6) {
+    @tmpI = &InventoryType ($tmpINV[$j])
+    if ($tmpI[0] > -1) {
+        do deal Mirei:
+        pause 2
+        $i = 0
+        while ($i < @tmpI && $i<10) {
+            do deal add $tmpI[$i]
+            $i++
+            }
+        do deal
+        pause 2
+        do deal
+
+    }
+    $j++
+    }
+    #do ai on
+}
+}
+
+automacro gmor {
+    InMap c_tower1, Aldebaran
+    overrideAI 1
+    exclusive 1
+    timeout 5
+    call mor
+}
+
+macro mor {
+    do ai manual
+    do respawn
+    do move aldebaran 140 122
+    do talknpc 145 121 r2 r2
+    pause 1
+    do talknpc 126 150 r2 r0
+    pause 1
+    do move prontera 146 81
+    do talknpc 146 89 r2 r3
+    do move morocc 159 90
+    do talknpc 157 97 r0
+    do conf lockMap gef_fild05
+    do ai on
+
+}
+
+
+automacro warplastpoint {
+        SimpleHookEvent AI/lockMap
+        InMap morocc
+        InLockMap 0
+        overrideAI 1
+    exclusive 1
+    timeout 5
+    call {
+        switch (&config (lockMap)) {
+        case (== gef_fild05) {
+        #do move morocc &rand(150,160) &rand(100, 105)
+        #do talknpc 158 107 n
+        do move morocc 120 105
+        }
+        }
+
+}
+}
+
+
+automacro AutoBuff {
+    StatusInactiveHandle EFST_BLESSING
+    exclusive 1
+    timeout 20
+    call {
+    do respawn
+    switch ($.map) {
+    case (== morocc) {
+    do move morocc &rand(150,160) &rand(100, 105)
+    do talknpc 158 107 n
+    }
+    case (== payon) {
+    do move payon &rand(95,105) &rand(110, 120)
+    do talknpc 100 116 n
+    }
+    case (==aldebaran) {
+    do move aldebaran &rand(138,140) &rand(120, 124)
+    do talknpc 135 121 n
+    }
+    }
+
+}
+}
+
+
+automacro hp {
+    CurrentHP < 10%
+    InMap gl_church
+    timeout 5
+    call {
+        do respawn
+    }
+
 }
