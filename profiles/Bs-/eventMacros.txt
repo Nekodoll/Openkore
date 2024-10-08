@@ -31,10 +31,3 @@ automacro mail_stunner {
 }
 
 
-automacro autostoresetup {
-	PlayerNotNear /Slow/i ,/Monk/i
-	CharCurrentWeight > 10%
-	call {
-	do autostorage
-}
-}

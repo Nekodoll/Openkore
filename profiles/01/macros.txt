@@ -1,0 +1,8 @@
+automacro antiIdle {
+	eval AI::isIdle
+	map morocc
+	timeout 60
+	call {
+	do respawn
+	}
+}
