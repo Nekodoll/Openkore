@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 automacro AutoBuff {
 	StatusInactiveHandle EFST_BLESSING
 	JobIDNot 0
@@ -77,7 +78,7 @@ automacro lockMap_set {
 automacro warplastpoint {
        	SimpleHookEvent AI/lockMap
        	InMap morocc
-	InLockMap 1
+	InLockMap 0
        	overrideAI 1
 	exclusive 1
 	timeout 5
@@ -87,7 +88,7 @@ automacro warplastpoint {
 		do move morocc 132 105
 		}
 		case (== moc_fild02) {
-		do move morocc 132 107
+		do move morocc 132 100
 		}
 		}
 
@@ -95,14 +96,13 @@ automacro warplastpoint {
 }
 
 automacro lv40 {
-	BaseLevel >= 40
+	BaseLevel >= 30
 	overrideAI 1
+	ConfigKeyNot lockMap moc_fild02
 	exclusive 1
 	call {
 		do conf lockMap moc_fild02
-		do respwan
+		do respawn
 
 	}
 }
-
-

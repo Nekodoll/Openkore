@@ -1,11 +1,11 @@
 # Please Read the Users Manual
 # The Manual is located at https://openkore.com/wiki/Manual
-!include ../help.txt
+!include help.txt
 ######## Login options and server-specific options ########
 
 master HM-Ragnarok
 server 0
-username 
+username hmcats1
 password wasd1111
 loginPinCode
 char 0
@@ -37,7 +37,7 @@ XKore_ID
 
 # It is not advised to set secureAdminPassword if you're using Xkore 2
 secureAdminPassword 1
-adminPassword prupapai
+adminPassword thazonau
 callSign
 commandPrefix ;
 callSignGM 0
@@ -188,9 +188,9 @@ followLostStep 12
 followSitAuto 0
 followBot 0
 
-itemsTakeAuto 0
+itemsTakeAuto 2
 itemsTakeAuto_party 0
-itemsGatherAuto 0
+itemsGatherAuto 2
 itemsGatherAuto_notInTown 0
 itemsGatherAutoMinPlayerDistance 6
 itemsGatherAutoMinPortalDistance 5
@@ -201,7 +201,7 @@ cartMaxWeight 7900
 itemsTakeGreed 0
 itemsCheckWeight 1
 
-lockMap
+lockMap gef_fild05
 lockMap_x
 lockMap_y
 lockMap_randX
@@ -258,13 +258,13 @@ sitAuto_look
 sitAuto_look_from_wall
 sitTensionRelax 0
 
-statsAddAuto 1
-statsAddAuto_list 10 str, 10 dex, 20 vit, 20 str, 40 vit, 50 int, 30 dex, 92 str, 80 vit
-statsAddAuto_dontUseBonus 1
+statsAddAuto 0
+statsAddAuto_list
+statsAddAuto_dontUseBonus 0
 statsAdd_over_99 1
 
-skillsAddAuto 1
-skillsAddAuto_list 1 9, 2 10, 4 10,5 10,3 1,6 8,8 10,63 1,64 5,55 10,56 3,59 5,56 10,58 3,57 10
+skillsAddAuto 0
+skillsAddAuto_list
 
 tankMode 0
 tankModeTarget
@@ -298,13 +298,13 @@ teleportAuto_equip_leftAccessory
 teleportAuto_equip_rightAccessory
 teleportAuto_lostHomunculus
 teleportAuto_useItemForRespawn
-teleportAuto_item1 [Not For Sale] Novice Fly Wing
-teleportAuto_item2 Novice Butterfly Wing
+teleportAuto_item1
+teleportAuto_item2
 
-dealAuto 3
+dealAuto 1
 dealAuto_names
-partyAuto 2
-partyAutoShare 1
+partyAuto 1
+partyAutoShare 0
 partyAutoShareItem 0
 partyAutoShareItemDiv 0
 guildAutoDeny 1
@@ -767,7 +767,7 @@ monsterSkill {
 	# Target Monster Conditions
 }
 
-autoSwitch_default_rightHand +5 Lance
+autoSwitch_default_rightHand
 autoSwitch_default_leftHand
 autoSwitch_default_arrow
 
@@ -902,8 +902,32 @@ buyAuto {
 	minBase
 }
 
+sellAuto 0
+sellAuto_npc
+sellAuto_standpoint
+sellAuto_distance 3
+sellAuto_maxDistance
+sellAuto_npc_steps s
+
+storageAuto 0
+storageAuto_npc
+storageAuto_standpoint
+storageAuto_distance 3
+storageAuto_maxDistance
+storageAuto_npc_type 1
+storageAuto_type 0
+storageAuto_npc_steps
+storageAuto_password
+storageAuto_keepOpen 0
+storageAuto_useChatCommand
+storageAuto_useItem 0
+storageAuto_useItem_item
+storageAuto_notAfterDeath
+relogAfterStorage 0
+minStorageZeny 50
+
 npcTimeResponse
-npcWrongStepsMethod 1
+npcWrongStepsMethod 0
 
 getAuto {
 	minAmount
@@ -932,13 +956,3 @@ history_max 50
 macro_orphans terminate
 vendingLog_maxAttempts 3
 vendingLog_dateFormat 1
-
-#########
-teleport_search 0
-teleport_search_minSp 50000
-cmdOnLogin c @autoloot
-teleToDestOn 0
-teleToDestMap
-teleToDestXY
-teleToDestDistance 50
-teleToDestMethod steps

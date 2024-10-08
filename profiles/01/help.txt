@@ -9,19 +9,28 @@ attackSkillSlot {
 	maxAttempts 
 	maxUses 1
 }
-attackSkillSlot 59 {
+attackSkillSlot Brandish Spear {
+	lvl 10
+	maxDist 
+	aggressives 3
+	maxAttempts 
+	monsters
+	notMonsters Argiope,Argos,Wraith,Evil Druid
+	maxUses 
+}
+attackSkillSlot Spear Boomerang {
 	lvl 5
 	maxDist 18
 	maxAttempts 
 	monsters
-	notMonsters Argiope,Argos
+	notMonsters Argiope,Argos,Wraith,Evil Druid
 	maxUses 
 }
-attackSkillSlot 56 {
+attackSkillSlot Pierce {
 	lvl 5
 	maxDist 
 	maxAttempts 
-	monsters Argiope,Argos
+	monsters Argiope,Argos,Wraith,Evil Druid
 	notMonsters
 	maxUses 
 }
