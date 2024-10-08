@@ -1,0 +1,13 @@
+# Please Read the Users Manual
+# The Manual is located at https://openkore.com/wiki/Manual
+!include ../help.txt
+!include ../config.txt
+######## Login options and server-specific options ########
+
+master HM-Ragnarok
+server 0
+username hmcatsaco1
+password wasd1111
+loginPinCode
+char 0
+adminPassword cukiclai
