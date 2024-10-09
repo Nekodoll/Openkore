@@ -47,10 +47,48 @@ useSelf_skill 261 {
 	stopWhenHit 1
 }
 
+##################################
 
-useSelf_skill Blessing {
-	lvl 10
-	whenStatusInactive Blessing
-	timeout 5
+attackSkillSlot Spiritual Sphere Absorption {
+	lvl 1
+	dist 8
+	maxDist
+	maxCastTime 0
+	minCastTime 0
+	hp
+	sp < 50%
+}
+attackComboSlot 272 {
+	afterSkill 263
+	sp > 20%
+	isSelfSkill 1
+	waitBeforeUse 0
+	autoCombo 0
+	target_deltaHp
 }
 
+attackComboSlot Raging Quadruple Blow {
+	afterSkill Raging Trifecta Blow
+	waitBeforeUse 0.1
+	dist 1.5
+	isSelfSkill 1
+}
+
+attackComboSlot Raging Quadruple Blow {
+	afterSkill Raging Trifecta Blow
+	waitBeforeUse 0.2
+	dist 1.5
+	isSelfSkill 1
+}
+attackComboSlot Raging Quadruple Blow {
+	afterSkill Raging Trifecta Blow
+	waitBeforeUse 0.1
+	dist 1.5
+	isSelfSkill 1
+}
+attackComboSlot Raging Quadruple Blow {
+	afterSkill Raging Trifecta Blow
+	waitBeforeUse 0.2
+	dist 1.5
+	isSelfSkill 1
+}
