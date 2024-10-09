@@ -264,7 +264,7 @@ statsAddAuto_dontUseBonus 1
 statsAdd_over_99 1
 
 skillsAddAuto 1
-skillsAddAuto_list 1 9,
+skillsAddAuto_list 1 9,24 1, 26 2,28 1,22 3,23 10,22 10,35 1,32 10,27 4,25 1
 
 tankMode 0
 tankModeTarget
