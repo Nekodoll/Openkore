@@ -902,14 +902,14 @@ buyAuto {
 	minBase
 }
 
-sellAuto 1
+sellAuto 0
 sellAuto_npc morocc 147 102
 sellAuto_standpoint
 sellAuto_distance 3
 sellAuto_maxDistance
 sellAuto_npc_steps s
 
-storageAuto 1
+storageAuto 0
 storageAuto_npc morocc 157 97
 storageAuto_standpoint
 storageAuto_distance 7
