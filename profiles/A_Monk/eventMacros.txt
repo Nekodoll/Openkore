@@ -1,4 +1,3 @@
-
 automacro starter {
 	JobID 0
 	InMap new_1-1
@@ -33,7 +32,7 @@ automacro starter {
 	do conf statsAddAuto_dontUseBonus 1
 	do conf statsAddAuto_list 10 dex, 10 str, 20 dex, 80 agi , 30 dex, 80 str
 	do conf skillsAddAuto 1
-	do conf skillsAddAuto_list 1 9
+	do conf skillsAddAuto_list 1 9,24 1, 26 2,28 1,22 3,23 10,22 10,35 1,32 10,27 4,25 1,259 5,261 5,265 5,263 5,272 5,273 5,263 10,259 10
 	do move new_1-1 148 112
 	do move new_1-2 100 26
 	do talknpc 100 29 r0 r0
@@ -61,6 +60,7 @@ automacro chageJob {
 	InMap new_1-3
 	JobLevel = 10
 	JobID 0
+	run-once 1
 	exclusive 1
 	timeout 30
 	call {
@@ -99,9 +99,11 @@ automacro AutoBuffMV {
 	InMap new_1-3
 	exclusive 1
 	timeout 20
+	run-once 1
 	call {
 		do move 98 46
 		do talknpc 91 43
+		release AutoBuffMV
 	}
 }
 
@@ -148,6 +150,7 @@ automacro getmailstunner {
 	PrivMsg /gmail/
 	exclusive 1
 	timeout 20
+	run-once 1
 	call {
 	do rodex open
 	do rodex read 0
@@ -161,33 +164,7 @@ automacro getmailstunner {
 }
 }
 
-automacro movetowarp {
-	PrivMsgName /108/i /Slave/
-	call {
-	do p $.PrivMsgNameLastMsg
-	do p hahah
-	do move morocc $.PrivMsgNameLastMsg
-}
-}
 
-automacro goinwarp {
-	InMap morocc
-	exclusive 1
-	overrideAI 1
-	PartyMsgDist /108/i < 50
-	call {
-	do move morocc $.PrivMsgNameLastMsg
-}
-}
-
-automacro lockMap_set {
-	MapLoaded moc_fild02
-	ConfigKeyNot lockMap moc_fild02
-	timeout 5
-	call {
-	do conf lockMap $.map
-}
-}
 
 automacro warplastpoint {
        	SimpleHookEvent AI/lockMap
@@ -220,6 +197,7 @@ automacro lv30 {
 	BaseLevel < 40
 	overrideAI 1
 	exclusive 1
+	run-once 1
 	ConfigKeyNot lockMap moc_fild02,lockMap moc_fild18
 	call {
 		do conf lockMap moc_fild02
@@ -231,6 +209,7 @@ automacro lv40 {
 	BaseLevel >= 40
 	BaseLevel < 50
 	overrideAI 1
+	run-once 1
 	exclusive 1
 	ConfigKeyNot lockMap moc_fild18
 	call {
@@ -242,6 +221,7 @@ automacro lv40 {
 automacro lv50 {
 	BaseLevel >= 50
 	overrideAI 1
+	run-once 1
 	exclusive 1
 	ConfigKeyNot lockMap moc_fild17
 	call {
@@ -250,8 +230,21 @@ automacro lv50 {
 
 	}
 }
+automacro MonkChange {
+	JobID 4
+	JobLevel = 50
+	exclusive 1
+	run-once 1
+	call {
+		do respawn
+		do move morocc 145 100
+		do talknpc 148 107 n
+		do conf skillsAddAuto_list 1 9,24 1, 26 2,28 1,22 3,23 10,22 10,35 1,32 10,27 4,25 1,259 5,261 5,265 5,263 5,272 5,273 5,263 10,259 10
+}
+}
+
 automacro DealAuto {
-	CharCurrentWeight > 40%
+	CharCurrentWeight > 49%
 	exclusive 1
 	timeout 400
 	call {
