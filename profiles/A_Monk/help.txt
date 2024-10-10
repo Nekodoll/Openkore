@@ -67,27 +67,27 @@ attackComboSlot 272 {
 	target_deltaHp
 }
 
-attackComboSlot Raging Quadruple Blow {
-	afterSkill Raging Trifecta Blow
+attackComboSlot Chain Combo {
+	afterSkill Triple Attack
 	waitBeforeUse 0.1
 	dist 1.5
 	isSelfSkill 1
 }
 
-attackComboSlot Raging Quadruple Blow {
-	afterSkill Raging Trifecta Blow
+attackComboSlot Chain Combo {
+	afterSkill Triple Attack
 	waitBeforeUse 0.2
 	dist 1.5
 	isSelfSkill 1
 }
-attackComboSlot Raging Quadruple Blow {
-	afterSkill Raging Trifecta Blow
+attackComboSlot Combo Finish {
+	afterSkill Chain Combo
 	waitBeforeUse 0.1
 	dist 1.5
 	isSelfSkill 1
 }
-attackComboSlot Raging Quadruple Blow {
-	afterSkill Raging Trifecta Blow
+attackComboSlot Combo Finish {
+	afterSkill Chain Combo
 	waitBeforeUse 0.2
 	dist 1.5
 	isSelfSkill 1
