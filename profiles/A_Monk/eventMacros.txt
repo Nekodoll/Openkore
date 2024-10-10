@@ -124,8 +124,8 @@ macro getBuff {
 	do talknpc 158 107 n
 	}
 	case (== payon) {
-	do move payon &rand(95,105) &rand(110, 120)
-	do talknpc 100 116 n
+	do move payon &rand(170, 177) &rand(100, 104)
+    do talknpc 177 104 n
 	}
 	}
 
