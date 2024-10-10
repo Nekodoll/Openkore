@@ -175,8 +175,8 @@ automacro warplastpoint {
 	timeout 20
 	call {
 		switch (&config (lockMap)) {
-		case (== gef_fild05) {
-		do move morocc 132 105
+		case (== mjolnir_03) {
+		do move morocc 189 100
 		}
 		case (== moc_fild02) {
 		do move morocc 132 100
@@ -250,7 +250,7 @@ automacro DealAuto {
 	call {
 		#do ai manual
 		do respawn
-		do move morocc 133 44
+		do move payon 170 101
 		pause 2
 	@tmpINV = (usable,card,etc,etc,equip,usable)
 	$j = 0
@@ -273,4 +273,17 @@ automacro DealAuto {
 	}
 	#do ai on
 }
+}
+
+macro p {
+	do ai manual
+	do conf allowedMaps payon,mjolnir_03
+	do conf allowedMaps_reaction 0
+	do move morocc 150 90 
+	do talknpc 157 97 r2 r1
+	do move payon 180 100
+	do talknpc 182 104 r0
+	do move payon 189 100
+	do conf lockMap $.map
+	do ai on
 }
