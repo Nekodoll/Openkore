@@ -1,3 +1,22 @@
+automacro spamwarp {
+	InMap payon
+	timeout 27
+	call {
+	do sl 27 189 100
+	pause 0.2
+	do warp 1
+	pause 0.2
+	do sl 27 192 100
+	pause 0.2
+	do warp 2
+	pause 0.2
+	do sl 27 195 100
+	pause 0.2
+	do warp 3
+}
+	
+}
+
 automacro AutoBuff {
 	StatusInactiveHandle EFST_BLESSING
 	exclusive 1
@@ -10,68 +29,11 @@ automacro AutoBuff {
 	do talknpc 158 107 n
 	}
 	case (== payon) {
-	do move payon &rand(95,105) &rand(110, 120)
-	do talknpc 100 116 n
+	    do move payon &rand(170, 177) &rand(100, 104)
+    do talknpc 177 104 n
+
 	}
 	}
 
 }	
 }	
-
-
-automacro payonunstack {
-	IsInCoordinate 150..152 125..127
-	InMap payon
-	exclusive 1
-	timeout 20
-	call {
-	do west
-}
-}
-
-macro t {
-	do pm Mirei: &random ("ส่งบลูมาให้เดี๋ยวนี้โว้ย!", "ขอสั่งบลูทันทีไม่งั้นมีเรื่อง!", "บลูต้องมาถึงตอนนี้ทันที!", "เอาบลูมาให้ฉันเดี๋ยวนี้เว้ย!", "ต้องการบลูในตอนนี้! เร็ว!", "รีบเอาบลูมาให้ทันทีไม่งั้นเจอดี!", "บลูต้องมาที่นี่ตอนนี้เดี๋ยวนี้!", "ส่งบลูมาให้ฉันเดี๋ยวนี้ ไม่งั้นเจอแน่!", "ขอบลูตอนนี้เลย เร็ว!", "เอาบลูมาที่นี่เดี๋ยวนี้ ไม่งั้นจัดหนัก!")
-}
-
-automacro movetoGetBlue {
-	InMap morocc
-	InInventory "Blue Gemstone" < 10
-	timeout 360
-	call {
-	do move 155 103
-	pause 2
-	do c &random ("ส่งบลูมาให้เดี๋ยวนี้โว้ย!", "ขอสั่งบลูทันทีไม่งั้นมีเรื่อง!", "บลูต้องมาถึงตอนนี้ทันที!", "เอาบลูมาให้ฉันเดี๋ยวนี้เว้ย!", "ต้องการบลูในตอนนี้! เร็ว!", "รีบเอาบลูมาให้ทันทีไม่งั้นเจอดี!", "บลูต้องมาที่นี่ตอนนี้เดี๋ยวนี้!", "ส่งบลูมาให้ฉันเดี๋ยวนี้ ไม่งั้นเจอแน่!", "ขอบลูตอนนี้เลย เร็ว!", "เอาบลูมาที่นี่เดี๋ยวนี้ ไม่งั้นจัดหนัก!")
-	}
-}
-
-automacro warpslve {
-	PrivMsgName /(Worm|wolf)/ /Slow/i
-	InMap morocc
-	timeout 3
-	call {
-	do sl 27 160 114
-	pause 2
-	do warp 1
-	pause 0.7
-	do c วาบหนอนแดง
-	do c เหนื่อยเจง
-}
-
-}
-
-macro log {
-	do conf logChat 0
-	do conf logPrivateChat 0
-	do conf logPartyChat 0
-	do conf logGuildChat 0
-	do conf logSystemChat 0
-	do conf logLocalBroadcast 0
-	do conf logShop 0
-	do conf logEmoticons 0
-	do conf logConsole 0
-	do conf logAppendUsername 0
-	do conf logAppendServer 0
-	do conf monsterLog 0
-	do conf playerLog 0
-	do conf logDead 0
-}
