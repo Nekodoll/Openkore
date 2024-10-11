@@ -37,7 +37,7 @@ XKore_ID
 
 # It is not advised to set secureAdminPassword if you're using Xkore 2
 secureAdminPassword 1
-adminPassword hutreche
+adminPassword kesagric
 callSign
 commandPrefix ;
 callSignGM 0
@@ -201,9 +201,9 @@ cartMaxWeight 7900
 itemsTakeGreed 0
 itemsCheckWeight 1
 
-lockMap morocc
-lockMap_x 164
-lockMap_y 111
+lockMap payon
+lockMap_x 192
+lockMap_y 103
 lockMap_randX
 lockMap_randY
 
@@ -232,13 +232,13 @@ runFromTarget_dist 5
 runFromTarget_minStep 7
 runFromTarget_maxPathDistance 13
 
-saveMap morocc
+saveMap payon
 saveMap_warpToBuyOrSell 1
 saveMap_warpChatCommand @load
-memo1 morocc
-memo2 mjolnir_10
-memo3 moc_fild14
-memo4
+memo1 payon
+memo2 mjolnir_03
+memo3 moc_fild18
+memo4 gef_fild05
 
 shopAuto_open 0
 shop_random 0
@@ -253,7 +253,7 @@ sitAuto_sp_lower 0
 sitAuto_sp_upper 0
 sitAuto_follow 0
 sitAuto_over_50 0
-sitAuto_idle 1
+sitAuto_idle 0
 sitAuto_look
 sitAuto_look_from_wall
 sitTensionRelax 0
