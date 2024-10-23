@@ -1,3 +1,30 @@
+
+automacro clearErrorMacro {
+	InMap payon
+	timeout 36
+	InLockMap 0
+	call {
+	do respawn
+	do eval AI::clear
+	}
+	
+}
+
+macro p {
+	do ai manual
+	do conf allowedMaps payon,mjolnir_03
+	do conf allowedMaps_reaction 0
+	do move morocc 150 90 
+	do talknpc 157 97 r2 r1
+	do move payon 180 100
+	do talknpc 182 104 r0
+	do move payon 189 100
+	do conf lockMap $.map
+	do ai on
+}
+
+
+
 macro tab {
     do conf logChat 0
     do conf logPrivateChat 0
@@ -36,17 +63,16 @@ macro tab {
 
 automacro DealAuto {
     CharCurrentWeight > 50%
-    JobID 7
     exclusive 1
     timeout 400
     call {
         #do ai manual
         do respawn
-        do move morocc 133 44
+        do move payon 170 101
         pause 2
-    @tmpINV = (usable,card,etc,etc,equip,usable)
+    @tmpINV = (etc,etc,equip,equip,card,usable,usable)
     $j = 0
-    while ($j < 6) {
+    while ($j < 7) {
     @tmpI = &InventoryType ($tmpINV[$j])
     if ($tmpI[0] > -1) {
         do deal Mirei:
@@ -95,21 +121,20 @@ macro mor {
 
 automacro warplastpoint {
         SimpleHookEvent AI/lockMap
-        InMap morocc
-        InLockMap 0
+	InMap payon
+	InLockMap 0
         overrideAI 1
-    exclusive 1
-    timeout 5
-    call {
-        switch (&config (lockMap)) {
-        case (== gef_fild05) {
-        #do move morocc &rand(150,160) &rand(100, 105)
-        #do talknpc 158 107 n
-        do move morocc 120 105
-        }
-        }
+	timeout 5
+	exclusive 1
+    	call {
+	switch (&config (lockMap)) {
+        	case (== gef_fild11) {
+		do move payon 185 95
+        	}	
+	}
 
-}
+
+	}
 }
 
 
@@ -125,8 +150,8 @@ automacro AutoBuff {
     do talknpc 158 107 n
     }
     case (== payon) {
-    do move payon &rand(95,105) &rand(110, 120)
-    do talknpc 100 116 n
+    do move payon &rand(170, 177) &rand(100, 104)
+    do talknpc 177 104 n
     }
     case (==aldebaran) {
     do move aldebaran &rand(138,140) &rand(120, 124)
@@ -137,13 +162,3 @@ automacro AutoBuff {
 }
 }
 
-
-automacro hp {
-    CurrentHP < 10%
-    InMap gl_church
-    timeout 5
-    call {
-        do respawn
-    }
-
-}
