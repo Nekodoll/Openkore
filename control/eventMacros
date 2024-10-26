@@ -1,0 +1,347 @@
+automacro DealAuto {
+    CharCurrentWeight > 50%
+    exclusive 1
+    timeout 400
+    call {
+        #do ai manual
+        do respawn
+        do move payon 170 101
+        pause 2
+    @tmpINV = (etc,etc,equip,equip,card,usable,usable)
+    $j = 0
+    while ($j < 7) {
+    @tmpI = &InventoryType ($tmpINV[$j])
+    if ($tmpI[0] > -1) {
+        do deal Mirei:
+        pause 2
+        $i = 0
+        while ($i < @tmpI && $i<10) {
+            do deal add $tmpI[$i]
+            $i++
+            }
+        do deal
+        pause 2
+        do deal
+
+    }
+    $j++
+    }
+    #do ai on
+}
+}
+
+
+automacro starter {
+	JobID 0
+	InMap new_1-1
+	run-once 1
+	exclusive 1
+	call {
+	do conf logChat 0
+	do conf logPrivateChat 0
+	do conf logPartyChat 0
+	do conf logGuildChat 0
+	do conf logSystemChat 0
+	do conf logLocalBroadcast 0
+	do conf logShop 0
+	do conf logEmoticons 0
+	do conf logConsole 0
+	do conf logAppendUsername 0
+	do conf logAppendServer 0
+	do conf monsterLog 0
+	do conf playerLog 0
+	do conf logDead 0
+	do conf sitAuto_hp_lower 0
+	do conf sitAuto_hp_upper 0
+	do conf sitAuto_sp_lower 0
+	do conf sitAuto_sp_upper 0
+	do conf teleportAuto_search 0
+	do conf dcOnStorageFull 0
+	do conf sellAuto 0
+	do conf storageAuto 0
+	do conf statsAddAuto 0
+	do conf lockMap unset
+	do conf statsAddAuto 1
+	do conf statsAddAuto_dontUseBonus 1
+	do conf statsAddAuto_list 10 dex, 10 str, 20 dex, 80 agi , 30 dex, 80 str
+	do conf skillsAddAuto 1
+	do conf skillsAddAuto_list 1 9,24 1, 26 2,28 1,22 3,23 10,22 10,35 1,32 10,27 4,25 1,259 5,261 5,265 5,263 5,272 5,273 5,263 10,259 10
+	do move new_1-1 148 112
+	do move new_1-2 100 26
+	do talknpc 100 29 r0 r0
+	do mconf all 0 0 0
+	do mconf lunatic 2 0 1
+	do mconf Picky 2 0 1
+	do mconf Poring 2 0 1 
+	do mconf Fabre 2 0 1
+	do mconf drop 2 0 1
+	do move new_1-3 94 42
+	do conf lockMap $.map
+	do talknpc 91 43 n
+	do eq Novice Main-Gauche
+	do eq Novice Guard
+	do eq Tattered Novice Ninja Suit
+	do eq Novice Slippers
+	do eq Somber Novice Hood
+	do eq Novice False Eggshell
+	do conf itemsTakeAuto 0
+	do conf itemsGatherAuto 0
+}
+}
+
+automacro chageJob {
+	InMap new_1-3
+	JobLevel = 10
+	JobID 0
+	run-once 1
+	exclusive 1
+	timeout 30
+	call {
+	do ai manual
+	do move new_1-3 94 42
+	do talknpc 91 43 n
+	do talknpc 91 37 r0
+	do move morocc 161 106
+	do talknpc 169 107 r3
+	do eq Knife [3]
+	do eq Cotton Shirts
+	do iconf Novice Potion 0 0 0
+	do conf saveMap morocc
+	do conf saveMap_warpChatCommand @load
+	do conf sellAuto 1
+	do conf sellAuto_npc morocc 147 102
+	do conf storageAuto 1
+	do conf storageAuto_npc morocc 157 97
+	do conf lockMap moc_pryd01
+	do conf skillsAddAuto_list 1 9, 
+	do mconf all 1 0 1
+	do mconf Condor 1 0 1
+	do mconf lunatic 1 0 1
+	do mconf Picky 1 0 1
+	do mconf Poring 1 0 1 
+	do mconf Fabre 1 0 1
+	do mconf drop 1 0 1
+	do conf itemsTakeAuto 1
+	do conf itemsGatherAuto 1
+	}
+}
+
+
+automacro AutoBuffMV {
+	StatusInactiveHandle EFST_BLESSING
+	InMap new_1-3
+	exclusive 1
+	timeout 20
+	run-once 1
+	call {
+		do move 98 46
+		do talknpc 91 43
+		release AutoBuffMV
+	}
+}
+
+automacro AutoBuff {
+	StatusInactiveHandle EFST_BLESSING
+	JobIDNot 0
+	exclusive 1
+	timeout 20
+	call getBuff
+
+
+}
+macro getBuff {
+	do respawn
+	switch ($.map) {
+	case (== morocc) {
+	do move morocc &rand(150,160) &rand(100, 105)
+	do talknpc 158 107 n
+	}
+	case (== payon) {
+	do move payon &rand(170, 177) &rand(100, 104)
+    do talknpc 177 104 n
+	}
+	}
+
+}
+automacro rehp {
+	CurrentHP < 20%
+	timeout 20
+	InLockMap 1
+	call getBuff
+}
+
+
+automacro getstunner {
+	InInventory "Stunner" < 1
+	timeout 6000
+	BaseLevel >= 27
+	JobID 0
+	call {
+		do pm Mirei: stunnergo
+	}
+}
+automacro getmailstunner {
+	PrivMsg /gmail/
+	exclusive 1
+	timeout 20
+	run-once 1
+	call {
+	do rodex open
+	do rodex read 0
+	do rodex getitems 0
+	do rodex delete 0
+	do rodex close
+	do eq &inventory (Stunner)
+	do conf lockMap moc_fild02
+	do respawn
+
+}
+}
+
+
+
+automacro warplastpoint {
+       	SimpleHookEvent AI/lockMap
+       	InMap payon
+	InLockMap 0
+       	overrideAI 1
+	exclusive 1
+	timeout 5
+	call {
+		switch (&config (lockMap)) {
+		case (== gef_fild11) {
+		do move payon 185 95
+		}
+
+		}
+
+}
+}
+
+automacro lv30 {
+	BaseLevel >= 30
+	BaseLevel < 40
+	overrideAI 1
+	exclusive 1
+	run-once 1
+	ConfigKeyNot lockMap moc_fild02,lockMap moc_fild18
+	call {
+		do conf lockMap moc_fild02
+		do respawn
+
+	}
+}
+automacro lv40 {
+	BaseLevel >= 40
+	BaseLevel < 50
+	overrideAI 1
+	run-once 1
+	exclusive 1
+	ConfigKeyNot lockMap moc_fild18
+	call {
+		do conf lockMap moc_fild18
+		do respawn
+
+	}
+}
+automacro lv50 {
+	BaseLevel >= 99
+	overrideAI 1
+	run-once 1
+	exclusive 1
+	ConfigKeyNot lockMap moc_fild17
+	call {
+		do conf lockMap moc_fild17
+		do respawn
+
+	}
+}
+automacro MonkChange {
+	JobID 4
+	JobLevel = 50
+	exclusive 1
+	run-once 1
+	call {
+		do respawn
+		do move 180 100
+		do talknpc 182 100 r2 r2
+		do move morocc 145 100
+		do talknpc 148 107 n
+		do conf skillsAddAuto_list 1 9,24 1, 26 2,28 10,27 4 ,25 1,35 1,32 10,259 5,261 5,265 5,263 5,272 5,273 5,263 10,259 10
+}
+}
+
+automacro DealAuto {
+	CharCurrentWeight > 49%
+	exclusive 1
+	timeout 400
+	call {
+		#do ai manual
+		do respawn
+		do move payon 170 101
+		pause 2
+	@tmpINV = (usable,card,etc,etc,equip,usable)
+	$j = 0
+	while ($j < 6) {
+	@tmpI = &InventoryType ($tmpINV[$j])
+	if ($tmpI[0] > -1) {
+		do deal Mirei:
+		pause 2
+		$i = 0
+		while ($i < @tmpI && $i<10) {
+    		do deal add $tmpI[$i]
+    		$i++
+    		}
+		do deal
+		pause 2
+		do deal
+
+	}
+	$j++
+	}
+	#do ai on
+}
+}
+
+macro p {
+	do ai manual
+	do respawn
+	#do conf allowedMaps payon,mjolnir_03
+	#do conf allowedMaps_reaction 0
+	do move morocc 150 90 
+	do talknpc 157 97 r2 r1
+	do move payon 180 100
+	do talknpc 182 104 r0
+	do move payon 185 95
+	#do conf lockMap mjolnir_03
+	do ai on
+}
+
+automacro resp {
+	CurrentSP < 10%
+	timeout 5
+	InLockMap 1
+	call getBuff
+}
+automacro clearErrorMacro {
+        InMap payon,morocc
+        timeout 600
+        InLockMap 0
+        call {
+        do respawn
+        do eval AI::clear
+        }
+
+}
+
+macro chagenew2ndJob {
+	do respawn
+	switch ($.map)) {
+		case (== payon) {
+		do move payon 180 100
+		do talknpc 182 104 r2 r2 n
+	}
+	
+	}
+		do move 
+}
