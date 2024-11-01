@@ -60,7 +60,7 @@ all 0 1 0
 ##### ARROWS #####
 # You may want to modify these if you're an archer/hunter
 
-Arrow 3000 1 0
+Arrow 0 0 1 # 1750
 
 
 
@@ -607,7 +607,7 @@ Spearman Scroll 10 0 0 0
 1193 0 0 0 0 0 # P_Slayer2
 1197 0 0 0 0 0 # P_Slayer3
 1198 0 0 0 0 0 # Hairtail
-1243 0 0 0 0 0 # Novice_Knife
+1243 0 0 1 # Novice Main-Gauche
 1267 0 0 0 0 0 # Infiltrator_C
 1273 0 0 0 0 0 # Bloody_Roar_C
 1274 0 0 0 0 0 # Unholy_Touch_C
@@ -723,7 +723,7 @@ Spearman Scroll 10 0 0 0
 2002 0 0 0 0 0 # Krieger_Twohand_Staff1
 2018 0 0 0 0 0 # Metal_Staff
 2019 0 0 0 0 0 # TE_Woe_Two_Hand_Staff
-2112 0 0 0 0 0 # Novice_Guard
+2112 0 0 1 # Novice Guard
 2132 0 0 0 0 0 # Shelter_Resistance
 2136 0 0 0 0 0 # Cracked_Buckler
 2137 0 0 0 0 0 # Valkyrja
@@ -732,7 +732,7 @@ Spearman Scroll 10 0 0 0
 2178 0 0 0 0 0 # TE_Woe_Buckler
 2179 0 0 0 0 0 # TE_Woe_Shield
 2180 0 0 0 0 0 # TE_Woe_Magic_Guard
-2352 0 0 0 0 0 # Novice_Plate
+2352 0 0 1 # Tattered Novice Ninja Suit
 2369 0 0 0 0 0 # Freyja_Overcoat
 2376 0 0 0 0 0 # Assaulter_Plate
 2377 0 0 0 0 0 # Elite_Engineer_Armor
@@ -748,7 +748,7 @@ Spearman Scroll 10 0 0 0
 2394 0 0 0 0 0 # Krieger_Suit1
 2395 0 0 0 0 0 # Krieger_Suit2
 2396 0 0 0 0 0 # Krieger_Suit3
-2414 0 0 0 0 0 # Novice_Boots
+2414 0 0 1 # Novice Slippers
 2428 0 0 0 0 0 # Freyja_Boots
 2429 0 0 0 0 0 # Iron_Boots01
 2430 0 0 0 0 0 # Iron_Boots02
@@ -769,7 +769,7 @@ Spearman Scroll 10 0 0 0
 2496 0 0 0 0 0 # TE_Woe_Shoes
 2497 0 0 0 0 0 # TE_Woe_Boots
 2498 0 0 0 0 0 # TE_Woe_Magic_Sandal
-2510 0 0 0 0 0 # Novice_Hood
+2510 0 0 1 # Somber Novice Hood
 2533 0 0 0 0 0 # Freyja_Cape
 2535 0 0 0 0 0 # Cloak_Of_Survival_C
 2538 0 0 0 0 0 # Commander_Manteau
@@ -1764,7 +1764,7 @@ Spearman Scroll 10 0 0 0
 911 0 0 1 #Scell
 516 0 0 1 #Sweet Potato
 511 0 0 1 #Green Herb
-507 0 0 1 #Red Herb
+507 0 0 1 # Red Herb
 22543 100 1 0 # Berserk Potion
 619 0 0 1 #Unripe Apple
 508 0 0 1 #Yellow Herb
@@ -1784,3 +1784,24 @@ Spearman Scroll 10 0 0 0
 716 0 0 1 #Red Gemstone
 729 0 1 0 #Zircon
 2213 0 0 1 #Kitty Band
+1147 0 0 1 #Town Sword [2]
+713 0 0 1 #Empty Bottle
+514 0 0 1 #Grape
+1522 0 0 0 #Stunner
+582 0 0 1 #Orange
+5055 0 0 1 #Novice False Eggshell
+509 0 0 1 #White Herb
+5113 0 0 1 #Angry Snarl
+5090 0 0 1 #Goblin Leader Mask
+2297 0 0 1 #Goblin Mask
+1765 0 0 1 #Oridecon Arrow
+5089 0 0 1 #Annoyed Mask
+2104 0 0 1 #Buckler [1]
+5087 0 0 1 #Poker Face
+2263 0 0 1 #Zorro Masque
+998 0 0 1 #Iron
+5088 0 0 1 #Surprised Mask
+2275 0 0 1 #Red Bandana
+5010 0 0 1 #Indian Fillet
+1967 0 0 1 #Gaia Whip
+2262 0 0 1 #Clown Nose
